@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>ear</artifactId>
+    <packaging>ear</packaging>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -17,12 +18,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 <dependencies>
-    <dependency>
-        <groupId>com.jiat</groupId>
-        <artifactId>web</artifactId>
-        <version>1.0</version>
-        <type>jar</type>
-    </dependency>
     <dependency>
         <groupId>com.jiat</groupId>
         <artifactId>ejb</artifactId>
