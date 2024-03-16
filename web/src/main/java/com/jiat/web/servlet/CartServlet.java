@@ -1,6 +1,5 @@
 package com.jiat.web.servlet;
 
-import ejb.impl.CartBean;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;

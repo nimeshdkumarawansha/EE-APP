@@ -20,6 +20,11 @@
 <dependencies>
     <dependency>
         <groupId>com.jiat</groupId>
+        <artifactId>core</artifactId>
+        <type>jar</type>
+    </dependency>
+    <dependency>
+        <groupId>com.jiat</groupId>
         <artifactId>ejb</artifactId>
         <version>1.0</version>
         <type>ejb</type>
@@ -32,6 +37,7 @@
     </dependency>
 </dependencies>
     <build>
+        <finalName>ear</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -39,6 +45,18 @@
                 <version>3.2.0</version>
                 <configuration>
                     <defaultLibBundleDir>lib</defaultLibBundleDir>
+               <modules>
+                   <ejbModule>
+                       <groupId>com.jiat</groupId>
+                       <artifactId>ejb</artifactId>
+                       <bundleFileName>app.jar</bundleFileName>
+                   </ejbModule>
+                   <webModule>
+                       <groupId>com.jiat</groupId>
+                       <artifactId>web</artifactId>
+                       <contextRoot>/shopping</contextRoot>
+                   </webModule>
+               </modules>
                 </configuration>
             </plugin>
         </plugins>
