@@ -1,4 +1,4 @@
 package ejb.remort;
 
-public interface ABC {
+public interface ABC{
 }

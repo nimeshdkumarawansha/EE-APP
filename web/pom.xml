@@ -24,6 +24,13 @@
             <version>9.1.0</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.jiat</groupId>
+            <artifactId>ejb</artifactId>
+            <version>1.0</version>
+            <type>ejb-client</type>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
