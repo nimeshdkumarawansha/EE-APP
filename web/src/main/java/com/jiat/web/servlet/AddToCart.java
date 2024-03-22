@@ -1,6 +1,7 @@
 package com.jiat.web.servlet;
 
 import ejb.remort.Cart;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,11 +13,11 @@ import javax.naming.NamingException;
 import java.io.IOException;
 import java.util.Map;
 
-@WebServlet(name = "CartServlet", urlPatterns = "/cart")
-public class CartServlet extends HttpServlet {
-
+@WebServlet(name = "AddToCart", urlPatterns = "/add-cart")
+public class AddToCart extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String name = req.getParameter("name");
         Cart cart;
         try {
             InitialContext context = new InitialContext();
@@ -27,14 +28,9 @@ public class CartServlet extends HttpServlet {
             } else {
                 cart = (Cart) session.getAttribute("cart-session");
             }
+            cart.addItem(name);
+            resp.sendRedirect("cart");
 
-            Map<String, Object> items = cart.getItems();
-
-            resp.getWriter().write(items.toString());
-
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         } catch (NamingException e) {
             throw new RuntimeException(e);
         }
